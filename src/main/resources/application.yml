@@ -1,0 +1,4 @@
+logging: 
+  level: 
+    root: WARN
+  file: logfile.log
