@@ -16,16 +16,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
+import org.springframework.stereotype.Component;
 
 @WebFilter(urlPatterns = "/api/*")
 public class JwtFilter implements Filter {
  
-  @Value("${jwt.secret}")
+  @Value("${encryptor.jwt.secret}")
   private String secret;
  
   @Override
   public void init(final FilterConfig filterConfig) throws ServletException {
- 
+	  System.out.println("test");
   }
  
   @Override

@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 	@Value("${encryptor.vector}")
 	private String vector;
 	
-	@Value("${encryptor.secret}")
+	@Value("${encryptor.jwt.secret}")
 	private String secret;
 	
 	@Autowired
