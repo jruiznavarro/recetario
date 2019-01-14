@@ -3,20 +3,20 @@ package com.jruiznavarro.apps.recetario.user.entity;
 import java.util.Date;
 
 /**
- * Usuario.java
+ * CreateUserEntityRequest.java
  * 
  * @author Javier Ruiznavarro Ambrona
  *
  */
-public class GetUserEntityResponse {
+public class User {
 
 	private String alias;
 	private String name;
 	private String surname;
-	private Date endDate;
-	private boolean userActivation;
-	private Rol rol;
 	private String email;
+	private String pass;
+	private Date birthdayDate;
+	private Rol rol;
 
 	/**
 	 * @return the alias
@@ -64,51 +64,6 @@ public class GetUserEntityResponse {
 	}
 
 	/**
-	 * @return the endDate
-	 */
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	/**
-	 * @param endDate
-	 *            the endDate to set
-	 */
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
-	/**
-	 * @return the userActivation
-	 */
-	public boolean isUserActivation() {
-		return userActivation;
-	}
-
-	/**
-	 * @param userActivation
-	 *            the userActivation to set
-	 */
-	public void setUserActivation(boolean userActivation) {
-		this.userActivation = userActivation;
-	}
-
-	/**
-	 * @return the rol
-	 */
-	public Rol getRol() {
-		return rol;
-	}
-
-	/**
-	 * @param rol
-	 *            the rol to set
-	 */
-	public void setRol(Rol rol) {
-		this.rol = rol;
-	}
-
-	/**
 	 * @return the email
 	 */
 	public String getEmail() {
@@ -123,4 +78,42 @@ public class GetUserEntityResponse {
 		this.email = email;
 	}
 
+	/**
+	 * @return the pass
+	 */
+	public String getPass() {
+		return pass;
+	}
+
+	/**
+	 * @param pass
+	 *            the pass to set
+	 */
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	/**
+	 * @return the birthdayDate
+	 */
+	public Date getBirthdayDate() {
+		return birthdayDate;
+	}
+
+	/**
+	 * @param birthdayDate
+	 *            the birthdayDate to set
+	 */
+	public void setBirthdayDate(Date birthdayDate) {
+		this.birthdayDate = birthdayDate;
+	}
+
+	public Rol getRol() {
+		return rol;
+	}
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
+	
 }

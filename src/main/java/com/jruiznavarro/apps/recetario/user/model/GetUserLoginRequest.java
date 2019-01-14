@@ -1,4 +1,4 @@
-package com.jruiznavarro.apps.recetario.user.entity;
+package com.jruiznavarro.apps.recetario.user.model;
 
 /**
  * UsuarioEntityRequest.java
@@ -6,7 +6,7 @@ package com.jruiznavarro.apps.recetario.user.entity;
  * @author Javier Ruiznavarro Ambrona
  *
  */
-public class GetUserEntityRequest {
+public class GetUserLoginRequest {
 
 	private String alias;
 	private String pass;

@@ -2,3 +2,15 @@ logging:
   level: 
     root: WARN
   file: logfile.log
+  
+spring: 
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: dbjruiznavarrorecetario
+
+encryptor: 
+  key: Samanid?269RuKl.
+  vector: onEmoP.TrcE?sfrs
+  secret: b5d12534214r21321425u12435tp234r

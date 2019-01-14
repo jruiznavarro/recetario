@@ -1,8 +1,11 @@
 package com.jruiznavarro.apps.recetario.user.repository;
 
-import com.jruiznavarro.apps.recetario.user.entity.CreateUserEntityRequest;
-import com.jruiznavarro.apps.recetario.user.entity.GetUserEntityRequest;
-import com.jruiznavarro.apps.recetario.user.entity.GetUserEntityResponse;
+import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+
+import com.jruiznavarro.apps.recetario.user.entity.User;
 
 /**
  * UsuarioRepository.java
@@ -10,21 +13,14 @@ import com.jruiznavarro.apps.recetario.user.entity.GetUserEntityResponse;
  * @author Javier Ruiznavarro Ambrona
  *
  */
-public interface UserRepository {
+public interface UserRepository extends MongoRepository<User, String>{
 
-	/**
-	 * Obtenemos un usuario en función de su alias y contraseña
-	 * 
-	 * @param usuarioEntityRequest
-	 * @return
-	 */
-	public GetUserEntityResponse getUsuario(GetUserEntityRequest usuarioEntityRequest);
-
-	/**
-	 * Creamos un usuario
-	 * 
-	 * @param createUserEntityRequest
-	 */
-	public void createUser(CreateUserEntityRequest createUserEntityRequest);
-
+	@Query("{ 'alias' : ?0 }")
+	public List<User> findByAlias(String alias);
+	
+	@Query("{ 'email' : ?0 }")
+	public List<User> findByEmail(String alias);
+	
+	public User findByAliasAndPass(String alias, String pass);
+	
 }
