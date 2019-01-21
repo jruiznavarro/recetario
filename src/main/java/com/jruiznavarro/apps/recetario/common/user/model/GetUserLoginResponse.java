@@ -1,8 +1,8 @@
-package com.jruiznavarro.apps.recetario.user.model;
+package com.jruiznavarro.apps.recetario.common.user.model;
 
 import java.util.Date;
 
-import com.jruiznavarro.apps.recetario.user.entity.Rol;
+import com.jruiznavarro.apps.recetario.common.user.entity.Rol;
 
 /**
  * Usuario.java

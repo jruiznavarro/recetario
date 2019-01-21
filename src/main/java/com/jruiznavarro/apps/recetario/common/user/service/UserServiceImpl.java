@@ -1,4 +1,4 @@
-package com.jruiznavarro.apps.recetario.user.service;
+package com.jruiznavarro.apps.recetario.common.user.service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -10,14 +10,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.jruiznavarro.apps.recetario.common.constant.EncryptorUtils;
-import com.jruiznavarro.apps.recetario.user.constant.UserFileConstants;
-import com.jruiznavarro.apps.recetario.user.entity.User;
-import com.jruiznavarro.apps.recetario.user. model.UserResponse;
-import com.jruiznavarro.apps.recetario.user.exception.UserException;
-import com.jruiznavarro.apps.recetario.user.mapper.UserMapper;
-import com.jruiznavarro.apps.recetario.user.model.CreateUserRequest;
-import com.jruiznavarro.apps.recetario.user.model.GetUserLoginRequest;
-import com.jruiznavarro.apps.recetario.user.repository.UserRepository;
+import com.jruiznavarro.apps.recetario.common.token.service.TokenService;
+import com.jruiznavarro.apps.recetario.common.user.constant.UserFileConstants;
+import com.jruiznavarro.apps.recetario.common.user.entity.User;
+import com.jruiznavarro.apps.recetario.common.user. model.UserResponse;
+import com.jruiznavarro.apps.recetario.common.user.exception.UserException;
+import com.jruiznavarro.apps.recetario.common.user.mapper.UserMapper;
+import com.jruiznavarro.apps.recetario.common.user.model.CreateUserRequest;
+import com.jruiznavarro.apps.recetario.common.user.model.GetUserLoginRequest;
+import com.jruiznavarro.apps.recetario.common.user.repository.UserRepository;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -32,11 +33,11 @@ public class UserServiceImpl implements UserService {
 	@Value("${encryptor.vector}")
 	private String vector;
 	
-	@Value("${encryptor.jwt.secret}")
-	private String secret;
-	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private TokenService tokenService;
 	
 	@Autowired
 	private UserMapper userMapper;
@@ -62,26 +63,12 @@ public class UserServiceImpl implements UserService {
 		if(null != user) {
 			UserResponse userResponse = userMapper.userToUserResponse(user);
 			
-			refreshToken(userResponse);
+			tokenService.refreshToken(userResponse);
 			
 			return userResponse;			
 		} else {
 			throw new UserException(UserFileConstants.USER_NOT_EXIST);
 		}
-	}
-
-	private void refreshToken(UserResponse userResponse) {
-		final Instant now = Instant.now();
-		 
-	    final String jwt = Jwts.builder()
-	        .setSubject(userResponse.getAlias())
-	        .setIssuedAt(Date.from(now))
-	        .setExpiration(Date.from(now.plus(1, ChronoUnit.DAYS)))
-	        .signWith(SignatureAlgorithm.HS256, TextCodec.BASE64.encode(secret))
-	        .compact();
-	    
-	    userResponse.setToken(jwt);
-		
 	}
 
 }

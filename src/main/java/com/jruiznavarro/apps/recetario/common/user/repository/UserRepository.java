@@ -1,11 +1,11 @@
-package com.jruiznavarro.apps.recetario.user.repository;
+package com.jruiznavarro.apps.recetario.common.user.repository;
 
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import com.jruiznavarro.apps.recetario.user.entity.User;
+import com.jruiznavarro.apps.recetario.common.user.entity.User;
 
 /**
  * UsuarioRepository.java

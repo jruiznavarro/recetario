@@ -53,6 +53,7 @@ public class Application {
 	      = new FilterRegistrationBean<>();
 	         
 	    registrationBean.setFilter(new JwtFilter());
+	    registrationBean.addUrlPatterns("/api/*");
 	         
 	    return registrationBean;    
 	}

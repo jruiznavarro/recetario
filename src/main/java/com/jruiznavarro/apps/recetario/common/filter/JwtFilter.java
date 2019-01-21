@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
-@WebFilter(urlPatterns = "/api/*")
+
 public class JwtFilter implements Filter {
  
   @Value("${encryptor.jwt.secret}")
@@ -26,7 +26,6 @@ public class JwtFilter implements Filter {
  
   @Override
   public void init(final FilterConfig filterConfig) throws ServletException {
-	  System.out.println("test");
   }
  
   @Override

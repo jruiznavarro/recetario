@@ -1,4 +1,4 @@
-package com.jruiznavarro.apps.recetario.user.exception;
+package com.jruiznavarro.apps.recetario.common.user.exception;
 
 public class UserException extends Exception{
 

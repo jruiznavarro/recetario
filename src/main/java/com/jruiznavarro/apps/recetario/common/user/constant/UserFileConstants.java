@@ -1,4 +1,4 @@
-package com.jruiznavarro.apps.recetario.user.constant;
+package com.jruiznavarro.apps.recetario.common.user.constant;
 
 public class UserFileConstants {
 	

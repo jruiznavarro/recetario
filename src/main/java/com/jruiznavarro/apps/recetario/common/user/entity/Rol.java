@@ -1,4 +1,4 @@
-package com.jruiznavarro.apps.recetario.user.model;
+package com.jruiznavarro.apps.recetario.common.user.entity;
 
 /**
  * Rol.java

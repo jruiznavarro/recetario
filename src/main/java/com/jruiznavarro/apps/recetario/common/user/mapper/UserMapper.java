@@ -1,16 +1,16 @@
-package com.jruiznavarro.apps.recetario.user.mapper;
+package com.jruiznavarro.apps.recetario.common.user.mapper;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.jruiznavarro.apps.recetario.common.constant.EncryptorUtils;
-import com.jruiznavarro.apps.recetario.user.constant.UserFileConstants;
-import com.jruiznavarro.apps.recetario.user.entity.Rol;
-import com.jruiznavarro.apps.recetario.user.entity.User;
-import com.jruiznavarro.apps.recetario.user.exception.UserException;
-import com.jruiznavarro.apps.recetario.user.model.CreateUserRequest;
-import com.jruiznavarro.apps.recetario.user.model.UserResponse;
+import com.jruiznavarro.apps.recetario.common.user.constant.UserFileConstants;
+import com.jruiznavarro.apps.recetario.common.user.entity.Rol;
+import com.jruiznavarro.apps.recetario.common.user.entity.User;
+import com.jruiznavarro.apps.recetario.common.user.exception.UserException;
+import com.jruiznavarro.apps.recetario.common.user.model.CreateUserRequest;
+import com.jruiznavarro.apps.recetario.common.user.model.UserResponse;
 
 @Component
 public class UserMapper {
@@ -40,7 +40,7 @@ public class UserMapper {
 		UserResponse userResponse = new UserResponse();
 		BeanUtils.copyProperties(user, userResponse);
 		if(null != user.getRol()) {
-			userResponse.setRol(new com.jruiznavarro.apps.recetario.user.model.Rol(user.getRol().getRol()));
+			userResponse.setRol(new com.jruiznavarro.apps.recetario.common.user.model.Rol(user.getRol().getRol()));
 		}
 		return userResponse;
 	}
